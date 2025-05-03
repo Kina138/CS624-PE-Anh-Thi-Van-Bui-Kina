@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  Text
+} from 'react-native';
 
 import Heading from './Heading';
 import Input from './Input';
 import TodoList from './TodoList';
+import TabBar from './TabBar'; // NEW
 
 class App extends Component {
   constructor() {
@@ -18,6 +25,7 @@ class App extends Component {
     this.inputChange = this.inputChange.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
+    this.setType = this.setType.bind(this); // NEW
   }
 
   toggleComplete(todoIndex) {
@@ -37,13 +45,11 @@ class App extends Component {
   }
 
   inputChange(inputValue) {
-    console.log('Input Value:', inputValue);
     this.setState({ inputValue });
   }
 
   submitTodo() {
     const { inputValue, todos } = this.state;
-
     if (inputValue.trim() === '') return;
 
     const newTodo = {
@@ -57,17 +63,24 @@ class App extends Component {
     this.setState({
       todos: updatedTodos,
       inputValue: ''
-    }, () => {
-      console.log('State:', {
-        inputValue: this.state.inputValue,
-        todos: this.state.todos,
-        type: this.state.type
-      });
     });
   }
 
+  // NEW: change filter type
+  setType(type) {
+    this.setState({ type });
+  }
+
   render() {
-    const { inputValue, todos } = this.state;
+    const { inputValue, todos, type } = this.state;
+
+    // Filter todos based on current type
+    let filteredTodos = todos;
+    if (type === 'Active') {
+      filteredTodos = todos.filter((todo) => !todo.complete);
+    } else if (type === 'Complete') {
+      filteredTodos = todos.filter((todo) => todo.complete);
+    }
 
     return (
       <View style={styles.container}>
@@ -77,11 +90,18 @@ class App extends Component {
             inputValue={inputValue}
             inputChange={this.inputChange}
           />
+
+          {/* Tab bar here */}
+          <TabBar type={type} setType={this.setType} />
+
+          {/* Show filtered todos */}
           <TodoList
-            todos={todos}
+            todos={filteredTodos}
             toggleComplete={this.toggleComplete}
             deleteTodo={this.deleteTodo}
           />
+
+          {/* Submit button */}
           <TouchableOpacity style={styles.submitButton} onPress={this.submitTodo}>
             <Text style={styles.submitButtonText}>Submit</Text>
           </TouchableOpacity>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import TodoButton from './TodoButton'; // import the reusable button component
+import TodoButton from './TodoButton';
 
 const Todo = ({ todo, toggleComplete, deleteTodo }) => (
   <View style={styles.todoContainer}>
-    <Text style={styles.todoText}>
+    <Text style={[styles.todoText, todo.complete && styles.completedText]}>
       {todo.title}
     </Text>
 
@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
   },
   todoText: {
     fontSize: 17
+  },
+  completedText: {
+    textDecorationLine: 'line-through',
+    color: '#aaa'
   }
 });
 
