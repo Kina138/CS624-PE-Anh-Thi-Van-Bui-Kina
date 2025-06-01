@@ -1,43 +1,23 @@
-# PE04 – Profile Cards
+# Input
+- Users enter data in the **AddCountry** tab.
+- Two text fields collect:
+  - **Country Name**
+  - **Currency**
+- Data is submitted by tapping the “Add Country” button.
+- Input is flexible and allows unique entries for each country.
 
-## Input
+# Process
+- The app uses React’s `useState` to store country and currency data locally.
+- Data is stored in an array that updates dynamically when new entries are added.
+- React Navigation’s **Bottom Tab Navigator** handles screen transitions.
+- Tabs include: Cities, AddCity, AddCountry, and Countries.
+- State is shared across tabs using props and hooks, ensuring real-time updates.
+- The logic is implemented using JavaScript and React Native components.
 
-In this programming exercise, we worked with a React Native application using Expo to implement a series of styled Profile Cards. The input includes:
-
-- A base application copied from the completed HOS05 and HOS06.
-- A static user image (`user.png`) stored under `assets/images/`.
-- Hardcoded profile information (name, occupation, and description) for six users.
-- User interaction is performed by tapping each card to toggle between expanded and collapsed views.
-
-## Process
-
-This PE consists of two parts:
-
-### Part 1: (After HOS05)
-
-- Copied the app from HOS05 into the `PE04/Part1` folder.
-- Applied text styling techniques as described in Section 4.3 of the textbook.
-- Modified the `App.js` and `styles.js` files to include:
-  - User’s name, occupation, and description inside the Profile Card.
-  - Proper font styles, alignment, and spacing.
-- Took a screenshot of the full Profile Card UI.
-
-### Part 2: (After HOS06)
-
-- Copied the updated app from HOS06 into `PE04/Part2`.
-- Built a gallery layout of six Profile Cards using `flexbox`.
-- Installed and used the `immutability-helper` package for state updates.
-- Each card can toggle between full view and thumbnail when clicked.
-- Added drop shadows with `elevation` (Android) and `ShadowPropTypesIOS` (iOS).
-- Saved screenshots of both collapsed and expanded states.
-
-## Output
-
-The final app displays a responsive gallery of six interactive Profile Cards. Each card includes:
-
-- A circular profile image with shadow effects.
-- Text content styled for clarity and readability.
-- Tap functionality to toggle between expanded and collapsed views.
-- A clean and modern layout using `flexDirection`, `flexWrap`, and other flexbox properties.
-
-All UI screenshots have been saved in the PE04 folder. The project has been pushed to GitHub as required.
+# Output
+- The **Countries** tab displays a real-time list of added countries and their currencies.
+- Each item in the list includes:
+  - The country’s name
+  - Its corresponding currency
+- The list updates immediately after a new entry is added.
+- The data is shown in a scrollable, user-friendly format.
