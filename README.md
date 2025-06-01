@@ -6,3 +6,4 @@
 - Module 02: PE02: Core Components
 - Module 03 & 04: PE03: Todo List
 - Module 05 & 06: PE04: Profile Cards
+- Module 07: PE05: Cities with Countries and Currency
