@@ -2,8 +2,9 @@
 
 ## Programming Excercises that I have completed
 
-- Module 01: PE01: Hello World!
-- Module 02: PE02: Core Components
-- Module 03 & 04: PE03: Todo List
-- Module 05 & 06: PE04: Profile Cards
-- Module 07: PE05: Cities with Countries and Currency
+- PE01: Hello World!
+- PE02: Core Components
+- PE03: Todo List
+- PE04: Profile Cards
+- PE05: Cities with Countries and Currency
+- PE06: Cities with Countries and Currency using Tab and Stack-based Navigations
