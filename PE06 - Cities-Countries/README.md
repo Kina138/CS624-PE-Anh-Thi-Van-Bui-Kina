@@ -1,23 +1,23 @@
-# Input
-- Users enter data in the **AddCountry** tab.
-- Two text fields collect:
+# PE06 – Cities with Countries and Currency using Tab and Stack-based Navigations
+
+## Input
+- Users interact with the app through multiple tabs in the bottom tab navigator.
+- In the **AddCountry** tab, users provide:
   - **Country Name**
-  - **Currency**
-- Data is submitted by tapping the “Add Country” button.
-- Input is flexible and allows unique entries for each country.
+  - **Currency Name**
+- In the **CitiesNav** tab, users can also enter cities as in previous exercises.
+- All inputs are collected via text fields and triggered using submit buttons (e.g., “Add Country”).
 
-# Process
-- The app uses React’s `useState` to store country and currency data locally.
-- Data is stored in an array that updates dynamically when new entries are added.
-- React Navigation’s **Bottom Tab Navigator** handles screen transitions.
-- Tabs include: Cities, AddCity, AddCountry, and Countries.
-- State is shared across tabs using props and hooks, ensuring real-time updates.
-- The logic is implemented using JavaScript and React Native components.
+## Process
+- The app uses `useState` to manage local state for countries, cities, and currencies.
+- React Navigation is configured with:
+  - Bottom Tab Navigation to switch between `CitiesNav`, `AddCity`, `AddCountry`, and `CountriesNav` tabs.
+  - Stack Navigation within **CountriesNav** to switch between a list of countries and the detail view showing currency information.
+- Data entered in AddCountry is pushed into a country list state and shared across screens using props or navigation params.
 
-# Output
-- The **Countries** tab displays a real-time list of added countries and their currencies.
-- Each item in the list includes:
-  - The country’s name
-  - Its corresponding currency
-- The list updates immediately after a new entry is added.
-- The data is shown in a scrollable, user-friendly format.
+## Output
+- The **CountriesNav** tab shows a stack-based navigation structure:
+  - First screen displays a list of all countries added.
+  - Tapping a country navigates to a second screen that shows the country’s currency.
+- The output updates dynamically to reflect newly added data.
+- Users can seamlessly navigate between countries and currency detail views.
